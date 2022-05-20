@@ -1,0 +1,26 @@
+
+<html>
+    <head>
+    </head>
+<div>
+  <ul>
+
+    <li><a href="{% url 'accounts/register' %}">Register</a></li>
+
+    <span style="float:right">
+      {% if user.is_authenticated %}
+          {% url 'profile' as profile_url %}
+          <span> Welcome {% if request.path == profile_url %}{{user.username}}{% else %}<a href="{{ profile_url }}">{{user.username}}</a>{% endif %} !</span>
+          <span><a href="{% url 'logout' %}">Logout</span>
+      {% else  %}
+          <span><a href="{% url 'accounts/login' %}">Login</span>
+      {% endif %}
+    </span>
+
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'courses' %}">Courses</a></li>
+
+  </ul> 
+</div>
+
+  </html>
