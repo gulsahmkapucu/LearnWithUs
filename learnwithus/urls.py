@@ -24,11 +24,15 @@ from . import views
 urlpatterns = [
     path('admin', admin.site.urls),
     path('',views.index, name="index"),
-    path('index',views.index, name="index"),
-    path('courses',views.courses, name="courses"),
+    path('courses',views.list_page, name="courses"),
+    # path('coursedetail/<int:cid>',views.detail_page, name="coursedetail"),
     path('accounts/register', views.RegisterPage.as_view(template_name="accounts/register.html"), name='accounts/register'),
-    path('liveqa',views.liveqa, name="liveqa"),
     path("accounts/profile", views.ProfileView.as_view(), name="profile"),
+    path('searchbar/',views.SearchView.as_view(), name='searchbar'),
+    path('',views.PostIndexView.as_view(),name='post-list'),    
+    path('coursedetail/<int:pk>',views.CourseDetail.as_view(), name="coursedetail"),
+
+
 
 #Django Auth
 path('accounts/login',auth_views.LoginView.as_view(template_name="accounts/login.html"), name="accounts/login"),

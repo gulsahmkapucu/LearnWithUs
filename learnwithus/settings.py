@@ -12,13 +12,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import environ
+# import environ
 
-env=environ.Env(
-    DEBUG=(bool,False)
-)
+# env=environ.Env(
+#     DEBUG=(bool,False)
+# )
 
-environ.Env.read_env()
+# environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,7 +42,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*',
   'localhost',
-  '127.0.0.1',]
+'127.0.0.1',]
+
+  #
 
 
 # Application definition
@@ -54,7 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
     'learnwithus',
 ]
 
@@ -122,7 +123,6 @@ DATABASES = {
         'PORT': '5432',
 
     }
-
 }
 
 
